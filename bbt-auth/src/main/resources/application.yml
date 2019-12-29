@@ -1,0 +1,34 @@
+server:
+  port: 8101
+spring:
+  application:
+    name: bbt-auth
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 1000ms
+    timeout: 5000ms
+eureka:
+  instance:
+    #向eureka服务器端发送心跳的时间间隔
+    lease-renewal-interval-in-seconds: 10
+  client:
+    #将当前服务注册eureka服务器端
+    register-with-eureka: true
+    #从eureka服务器端获取注册信息
+    fetch-registry: true
+    #每30秒去Eureka服务器端上获取服务缓存
+    registry-fetch-interval-seconds: 3
+    #新实例信息的变化到eureka服务器端的时间间隔
+    instance-info-replication-interval-seconds: 30
+    service-url:
+      defaultZone: http://bbt:bbt@127.0.0.1:8001/register/eureka/
+
+
+
