@@ -1,6 +1,5 @@
 package com.li.bbt.auth.config;
 
-import com.li.bbt.auth.entity.BbtAuthUser;
 import com.li.bbt.auth.service.BbtUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
