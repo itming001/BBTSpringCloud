@@ -1,0 +1,27 @@
+server:
+  port: 8001
+  servlet:
+    #访问此服务必须增加register前缀
+    context-path: /register
+#服务名称
+spring:
+  application:
+    name: bbt-register
+  #配置Eureka服务的受保护资源所需的用户名和密码
+  security:
+    user:
+      name: bbt
+      password: bbt
+eureka:
+  instance:
+    #指定eureka服务器端地址
+    hostname: 127.0.0.1
+  client:
+    #不需要从别的服务器端获取同步信息
+    fetch-registry: false
+    #表示将服务注册到eureka注册到服务器端
+    register-with-eureka: false
+    #微服务实例信息的变化到eureka服务器端的间隔时间
+    instance-info-replication-interval-seconds: 10
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/${server.servlet.context-path}/eureka/
