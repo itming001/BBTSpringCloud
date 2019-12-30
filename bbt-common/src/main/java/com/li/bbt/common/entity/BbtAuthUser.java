@@ -1,4 +1,4 @@
-package com.li.bbt.auth.entity;
+package com.li.bbt.common.entity;
 
 
 import lombok.Data;
