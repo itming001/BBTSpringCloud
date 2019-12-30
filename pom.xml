@@ -14,8 +14,8 @@
         <module>bbt-registry</module>
         <!--增加认证服务器 -->
         <module>bbt-auth</module>
-
-        <module>febs-auth</module>
+        <!--bbt 网关信息 -->
+        <module>bbt-gateway</module>
     </modules>
     <name>bbt-cloud</name>
     <description>bbt-cloud微服务架构</description>
