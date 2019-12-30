@@ -1,6 +1,6 @@
 package com.li.bbt.auth.service;
 
-import com.li.bbt.auth.entity.BbtAuthUser;
+import com.li.bbt.common.entity.BbtAuthUser;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
