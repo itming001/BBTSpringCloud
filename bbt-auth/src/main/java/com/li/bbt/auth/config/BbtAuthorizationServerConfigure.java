@@ -3,6 +3,7 @@ package com.li.bbt.auth.config;
 import com.li.bbt.auth.properties.BbtAuthProperties;
 import com.li.bbt.auth.properties.BbtClientsProperties;
 import com.li.bbt.auth.service.BbtUserDetailService;
+import com.li.bbt.auth.translator.BbtWebResopnseExceptionTranslator;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Bean;
@@ -39,6 +40,8 @@ public class BbtAuthorizationServerConfigure extends AuthorizationServerConfigur
     private PasswordEncoder passwordEncoder;
     @Resource
     private BbtAuthProperties bbtAuthProperties;
+    @Resource
+    private BbtWebResopnseExceptionTranslator bbtWebResopnseExceptionTranslator;
 
 
     @Override
@@ -70,7 +73,9 @@ public class BbtAuthorizationServerConfigure extends AuthorizationServerConfigur
         endpoints.tokenStore(tokenStore())
                 .userDetailsService(bbtUserDetailService)
                 .authenticationManager(authenticationManager)
-                .tokenServices(defaultTokenServices());
+                .tokenServices(defaultTokenServices())
+                //设置自定义异常翻译器
+                .exceptionTranslator(bbtWebResopnseExceptionTranslator);
     }
     @Bean
     public TokenStore tokenStore() {
