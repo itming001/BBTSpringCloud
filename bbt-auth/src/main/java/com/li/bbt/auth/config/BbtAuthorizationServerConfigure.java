@@ -26,6 +26,7 @@ import java.util.stream.Stream;
 
 /**
  * @author itming
+ * 令牌配置
  */
 @Configuration
 @EnableAuthorizationServer

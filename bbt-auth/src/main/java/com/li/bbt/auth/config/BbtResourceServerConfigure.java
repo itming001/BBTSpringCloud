@@ -10,7 +10,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  * @author itming
  */
 @Configuration
-//开启资源服务器相关配置
+/**
+ *
+ *开启资源服务器相关配置
+ */
 @EnableResourceServer
 public class BbtResourceServerConfigure extends ResourceServerConfigurerAdapter {
     @Override

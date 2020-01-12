@@ -24,6 +24,10 @@ public class BbtSecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private BbtUserDetailService bbtUserDetailService;
 
+    /**
+     * 配置密码加密的方式
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -36,10 +40,10 @@ public class BbtSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.requestMatchers()
+        http.requestMatchers() //基于request请求进行拦截
                 .antMatchers("/oauth/**")
                 .and()
-                .authorizeRequests()
+                .authorizeRequests() //授权配置
                 .antMatchers("/oauth/**").authenticated()
                 .and()
                 .csrf().disable();
